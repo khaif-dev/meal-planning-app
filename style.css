@@ -2,6 +2,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+html{
+  font-size: 62.5%;
 }
 
 :root {
@@ -16,34 +20,187 @@
 header {
   padding: 2rem;
   background: linear-gradient(135deg, var(--primary), var(--secondary));;
-  color: #f9f9f9;
+  color: var(--light);
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .brand{
   display: flex;
+  align-items: center;
   gap: 0.2rem;
+  font-size: 1.5rem;
 }
 
 nav ul{
   list-style-type: none;
   display: flex;
   gap: 2rem;
+  font-size: 1.8rem;
+}
+nav a {
+  text-decoration: none;
+  color: var(--light);
+}
+nav a:hover{
+  color: var(--accent);
+}
+.cfa {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.cfa button{
+  padding: 1.5rem;  
+  border-radius: 50px;
+  font-size: 1.8rem;
 }
 
 .login{
   background: none;
-  color: #f9f9f9;
-  padding: 0.8rem;
-  border: 1px solid #f9f9f9;
-  border-radius: 20px;
+  color: var(--light);
+  border: 1px solid var(--light);
+}
+.modal{
+  display: none;
+  position: fixed;
+  top: 15%;
+  left: 40%;
+  width: 30%;
+  max-width: 50%;
+  max-height: max-content;
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;  
+  background-color: var(--light);
+  padding: 3rem;
+  border-radius: 10px;
+}
+.modal-content{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.modal-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.close{
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+.form-group{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+.form-group input{
+  width: 90%;
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.form-group input:focus{
+  outline: none;
+  border-color: red;
+}
+.gender-group{
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.login-btn{
+  width: max-content;
+  padding: 1rem;
+  background-color: var(--secondary);
+  color: var(--light);
+  border: 1px solid var(--light);
+  border-radius: 30px;
+  font-size: 1.8rem;
 }
 
 .signup{
   background: var(--accent);
   color: var(--light);
-  padding: 0.8rem;
   border: none;
+}
+form a{
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: var(--secondary);
+}
+
+.signup-modal{
+  display: none;
+  padding: 2rem;
+  height: max-content;
+  width: 80%;
+  margin: 2rem auto;
   border-radius: 20px;
+  background-color: var(--gray);
+}
+fieldset{
+  padding: 2rem;
+  /* border: none; */
+  border-radius: 20px;
+}
+legend{
+  font-size: 2rem;
+  font-weight: bold;
+}
+.personal-info{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+.diet{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.diet h3{
+  font-size: 1.5rem;
+}
+.dietary-group, .allergies, .Health-goals{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  
+}
+.tag{
+  border: 1px solid var(--gray);
+  border-radius: 20px;
+  width: max-content;
+  padding: 1rem;
+  transition: all 0.2s;
+}
+.tag:hover{
+  border: 1px solid var(--secondary);
+}
+
+.create-acc{
+  display: flex;  
+  flex-direction: column;
+  padding:2rem;
+  gap: 1rem;
+}
+.create-acc button {
+  width: 90%;
+  margin: 0 auto;
+}
+.create-acc p {
+  text-align: center;
 }

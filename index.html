@@ -15,10 +15,10 @@
     </div>
     <nav>
       <ul>     
-        <li>Home</li>
-        <li>Recipes</li>
-        <li>Meal Plan</li>
-        <li>Grocery List</li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#recipes">Recipes</a></li>
+        <li><a href="#meal">Meal Plan</a></li>
+        <li><a href="#grocery list">Grocery List</a></li>
       </ul>
     </nav>
     <div class="cfa">
@@ -26,6 +26,137 @@
       <button class="signup">Sign Up</button>
     </div>
   </header>
+
+  <!-- login modal -->
+    <div class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1>Login</h1>
+          <span class="close">&times;</span>
+        </div>
+        <form action="login" method="get">
+          <div class="form-group">
+            <label for="email"><span style="color: red;">*</span>Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter email address" required>
+          </div>
+          <div class="form-group">
+            <label for="password"><span style="color: red;">*</span>Password</label>
+            <input type="password">
+          </div>
+          <button class="login-btn">Login</button>
+          <a href="">Forgot Password?</a>
+        </form>
+      </div>
+    </div>
+
+    <!-- reset password modal -->
+    <div class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1>Reset Password</h1>
+          <span class="close">&times;</span>
+        </div>
+        <form action="login" method="get">
+          <div class="form-group">
+            <label for="email"><span style="color: red;">*</span>Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter email address associated with this account" required>
+          </div>
+          <button class="login-btn">Reset Password</button>
+          <p>Remember Password?<a href="#login"> Login Here</a></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- signup modal -->
+     <div class="signup-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1>Create Account</h1>
+          <span class="close">&times;</span>
+        </div>
+        <form action="submit" method="post">
+          <fieldset>
+            <legend>Personal Information</legend>
+            <div class="personal-info">
+              <div class="form-group">
+                <label for="first_name"><span style="color: red;">*</span>First Name</label>
+                <input type="text" id="first_name" name="first_name" placeholder="Enter first name" required>
+              </div>
+              <div class="form-group">
+                <label for="last_name"><span style="color: red;">*</span>Last Name</label>
+                <input type="text" id="first_name" name="last_name" placeholder="Enter last name" required>
+              </div>
+              <div class="form-group">
+                <label for="email"><span style="color: red;">*</span>Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter email address" required>
+              </div>
+              <div class="form-group">
+                <label for="phone_number"><span style="color: red;">*</span>Phone Number</label>
+                <input type="number" id="phone_number" name="phone_number" placeholder="Enter Phone Number" required>
+              </div>
+              <div class="form-group">
+                <label for="password"><span style="color: red;">*</span>Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter password" required>
+              </div>
+              <div class="form-group">
+                <label for="confirm password"><span style="color: red;">*</span>Confirm Password</label>
+                <input type="password" id="confirm password" name="repassword" placeholder="Confirm password" required>
+              </div>
+              <div class="gender-group">
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">male</label>
+                <input type="radio" id="prefer_not_to_say" name="gender" value="prefer_not_to_say">
+                <label for="prefer_not_to_say">Prefer not to say</label>
+              </div>
+            </div>
+          </fieldset>
+          <!-- dietary preference -->
+           <fieldset class="preference">
+            <legend>Dietary Preference</legend>
+            <p>Select your dietary preferences to get personalized meal recommendations</p>
+            <div class="diet">
+              <h3>Diet Type</h3>
+              <div class="dietary-group">                
+                <div class="tag" value="Carnivore">Carnivore</div>
+                <div class="tag" value="Omnivore">Omnivore</div>
+                <div class="tag" value="Vegetarian">Vegetarian</div>
+                <div class="tag" value="Vegan">Vegan</div>
+                <div class="tag" value="Keto">Keto</div>
+                <div class="tag" value="High-Protein">High-Protein</div>
+                <div class="tag" value="Low-Carb">Low-Carb</div>
+              </div>
+              <h3>Allergies & Restrictions</h3>
+              <div class="allergies">                
+                <div class="tag" value="Carnivore">Gluten-Free</div>
+                <div class="tag" value="Carnivore">Dairy-Free</div>
+                <div class="tag" value="Carnivore">Nut-Free</div>
+                <div class="tag" value="Carnivore">Soy-Free</div>
+                <div class="tag" value="Carnivore">Egg-Free</div>
+                <div class="tag" value="Carnivore">Shellfish-Free</div>
+              </div>
+              <h3>Health Goals</h3>
+              <div class="Health-goals">                
+                <div class="tag" value="Carnivore">Weight Loss</div>
+                <div class="tag" value="Carnivore">Muscle Gain</div>
+                <div class="tag" value="Carnivore">Maintenance</div>
+                <div class="tag" value="Carnivore">Heart Healthy</div>
+              </div>
+            </div>
+           </fieldset>
+          <div class="create-acc">
+            <div class="terms">
+              <input type="checkbox" id="terms" name="terms" required>
+              <label for="terms">I agree to the <a href="#terms">Terms of Service</a> and <a href="#policy">Privacy Policy</a></label>
+            </div>
+            <button class="login-btn">Create Account</button>
+            <p>Already have an Account?<a href=""> LogIn</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+
 
   <script src="./script.js"></script>
 </body>
