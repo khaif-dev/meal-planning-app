@@ -18,7 +18,7 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#recipes">Recipes</a></li>
         <li><a href="#meal">Meal Plan</a></li>
-        <li><a href="#grocery list">Grocery List</a></li>
+        <li><a href="#grocery-list">Grocery List</a></li>
       </ul>
     </nav>
     <div class="cfa">
@@ -27,137 +27,164 @@
     </div>
   </header>
 
-  <!-- login modal -->
-    <div class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1>Login</h1>
-          <span class="close">&times;</span>
-        </div>
-        <form action="login" method="get">
-          <div class="form-group">
-            <label for="email"><span style="color: red;">*</span>Email</label>
-            <input type="email" id="email" name="email" placeholder="Enter email address" required>
-          </div>
-          <div class="form-group">
-            <label for="password"><span style="color: red;">*</span>Password</label>
-            <input type="password">
-          </div>
-          <button class="login-btn">Login</button>
-          <a href="">Forgot Password?</a>
-        </form>
-      </div>
-    </div>
+    <!-- home section -->
+  <section class="home">
+    <h1>Plan Your Meals, Simplify Your Life</h1>
+    <h2>Create personalized meal plans, discover delicious recipes, and generate grocery lists all in one place.</h2>
+    <button class="signup">Get Started</button>
 
-    <!-- reset password modal -->
-    <div class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1>Reset Password</h1>
-          <span class="close">&times;</span>
-        </div>
-        <form action="login" method="get">
-          <div class="form-group">
-            <label for="email"><span style="color: red;">*</span>Email</label>
-            <input type="email" id="email" name="email" placeholder="Enter email address associated with this account" required>
-          </div>
-          <button class="login-btn">Reset Password</button>
-          <p>Remember Password?<a href="#login"> Login Here</a></p>
-        </form>
-      </div>
-    </div>
+  </section>
 
-    <!-- signup modal -->
-     <div class="signup-modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1>Create Account</h1>
-          <span class="close">&times;</span>
-        </div>
-        <form action="submit" method="post">
-          <fieldset>
-            <legend>Personal Information</legend>
-            <div class="personal-info">
-              <div class="form-group">
-                <label for="first_name"><span style="color: red;">*</span>First Name</label>
-                <input type="text" id="first_name" name="first_name" placeholder="Enter first name" required>
-              </div>
-              <div class="form-group">
-                <label for="last_name"><span style="color: red;">*</span>Last Name</label>
-                <input type="text" id="first_name" name="last_name" placeholder="Enter last name" required>
-              </div>
-              <div class="form-group">
-                <label for="email"><span style="color: red;">*</span>Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter email address" required>
-              </div>
-              <div class="form-group">
-                <label for="phone_number"><span style="color: red;">*</span>Phone Number</label>
-                <input type="number" id="phone_number" name="phone_number" placeholder="Enter Phone Number" required>
-              </div>
-              <div class="form-group">
-                <label for="password"><span style="color: red;">*</span>Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter password" required>
-              </div>
-              <div class="form-group">
-                <label for="confirm password"><span style="color: red;">*</span>Confirm Password</label>
-                <input type="password" id="confirm password" name="repassword" placeholder="Confirm password" required>
-              </div>
-              <div class="gender-group">
-                <input type="radio" id="female" name="gender" value="female">
-                <label for="female">Female</label>
-                <input type="radio" id="male" name="gender" value="male">
-                <label for="male">male</label>
-                <input type="radio" id="prefer_not_to_say" name="gender" value="prefer_not_to_say">
-                <label for="prefer_not_to_say">Prefer not to say</label>
-              </div>
+  <section>
+    <!-- modal overlay to prevent interaction when modal is displaying -->
+     <div class="modal-overlay"></div>
+      <!-- login modal -->
+      <div class="login-modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1>Login</h1>
+            <span class="close">&times;</span>
+          </div>
+          <form action="login" method="get">
+            <div class="form-group">
+              <label for="login-email"><span style="color: red;">*</span>Email</label> 
+              <input type="email" id="login-email" name="email" placeholder="Enter email address" required>               
             </div>
-          </fieldset>
-          <!-- dietary preference -->
-           <fieldset class="preference">
-            <legend>Dietary Preference</legend>
-            <p>Select your dietary preferences to get personalized meal recommendations</p>
-            <div class="diet">
-              <h3>Diet Type</h3>
-              <div class="dietary-group">                
-                <div class="tag" value="Carnivore">Carnivore</div>
-                <div class="tag" value="Omnivore">Omnivore</div>
-                <div class="tag" value="Vegetarian">Vegetarian</div>
-                <div class="tag" value="Vegan">Vegan</div>
-                <div class="tag" value="Keto">Keto</div>
-                <div class="tag" value="High-Protein">High-Protein</div>
-                <div class="tag" value="Low-Carb">Low-Carb</div>
-              </div>
-              <h3>Allergies & Restrictions</h3>
-              <div class="allergies">                
-                <div class="tag" value="Carnivore">Gluten-Free</div>
-                <div class="tag" value="Carnivore">Dairy-Free</div>
-                <div class="tag" value="Carnivore">Nut-Free</div>
-                <div class="tag" value="Carnivore">Soy-Free</div>
-                <div class="tag" value="Carnivore">Egg-Free</div>
-                <div class="tag" value="Carnivore">Shellfish-Free</div>
-              </div>
-              <h3>Health Goals</h3>
-              <div class="Health-goals">                
-                <div class="tag" value="Carnivore">Weight Loss</div>
-                <div class="tag" value="Carnivore">Muscle Gain</div>
-                <div class="tag" value="Carnivore">Maintenance</div>
-                <div class="tag" value="Carnivore">Heart Healthy</div>
-              </div>
+            <div class="form-group">
+              <label for="login-password"><span style="color: red;">*</span>Password</label>
+              <input type="password" id="login-password" name="password" required>
             </div>
-           </fieldset>
-          <div class="create-acc">
-            <div class="terms">
-              <input type="checkbox" id="terms" name="terms" required>
-              <label for="terms">I agree to the <a href="#terms">Terms of Service</a> and <a href="#policy">Privacy Policy</a></label>
-            </div>
-            <button class="login-btn">Create Account</button>
-            <p>Already have an Account?<a href=""> LogIn</a></p>
-          </div>
-        </form>
+            <button class="login-btn">Login</button>
+            <a href="reset-modal" id="reset-password">Forgot Password?</a>
+          </form>
+        </div>
       </div>
-    </div>
+      <!-- reset password modal -->
+      <div class="reset-modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1>Reset Password</h1>
+            <span class="close">&times;</span>
+          </div>
+          <form action="login" method="get">
+            <div class="form-group">
+              <label for="reset-password-email"><span style="color: red;">*</span>Email</label>
+              <input type="email" id="reset-password-email" name="email" placeholder="Enter email address associated with this account" required>
+            </div>
+            <button class="login-btn">Reset Password</button>
+            <p>Remember Password?<a href="login-modal" class="login-link"> Login Here</a></p>
+          </form>
+        </div>
+      </div>
 
-
+      <!-- signup modal -->
+       <div class="signup-modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1>Create Account</h1>
+            <span class="close">&times;</span>
+          </div>
+          <form action="submit" method="post">
+            <fieldset>
+              <legend>Personal Information</legend>
+              <div class="personal-info">
+                <div class="form-group">
+                  <label for="first-name"><span style="color: red;">*</span>First Name</label>
+                  <input type="text" id="first-name" name="first-name" placeholder="Enter first name" required>
+                </div>
+                <div class="form-group">
+                  <label for="last-name"><span style="color: red;">*</span>Last Name</label>
+                  <input type="text" id="last-name" name="last-name" placeholder="Enter last name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email"><span style="color: red;">*</span>Email</label>
+                  <input type="email" id="email" name="email" placeholder="Enter email address" required>
+                </div>
+                <div class="form-group">
+                  <label for="phone-number"><span style="color: red;">*</span>Phone Number</label>
+                  <input type="tel" id="phone-number" name="phone-number" placeholder="Enter Phone Number" required>
+                </div>
+                <div class="form-group">
+                  <label for="password"><span style="color: red;">*</span>Password</label>
+                  <input type="password" id="password" name="password" placeholder="Enter password" required>
+                </div>
+                <div class="form-group">
+                  <label for="confirm-password"><span style="color: red;">*</span>Confirm Password</label>
+                  <input type="password" id="confirm-password" name="repassword" placeholder="Confirm password" required>
+                </div>
+                <div class="gender-group">
+                  <input type="radio" id="female" name="gender" value="female" checked>
+                  <label for="female">Female</label>
+                  <input type="radio" id="male" name="gender" value="male">
+                  <label for="male">Male</label>
+                  <input type="radio" id="prefer-not-to-say" name="gender" value="prefer-not-to-say">
+                  <label for="prefer-not-to-say">Prefer not to say</label>
+                </div>
+              </div>
+            </fieldset>
+            <!-- dietary preference -->
+             <fieldset class="preference">
+              <legend>Dietary Preference</legend>
+              <p>Select your dietary preferences to get personalized meal recommendations</p>
+              <div class="diet">
+                <h3>Diet Type</h3>
+                <div class="dietary-group">
+                  <label for="Carnivore"> Carnivore</label>
+                  <input type="checkbox" id="Carnivore" name="Carnivore" checked>
+                  <label for="Omnivore"> Omnivore</label>
+                  <input type="checkbox" id="Omnivore" name="Omnivore">
+                  <label for="Vegan"> Vegan</label>
+                  <input type="checkbox" id="Vegan" name="vegan">
+                  <label for="Vegetarian"> Vegetarian</label>
+                  <input type="checkbox" id="Vegetarian" name="Vegetarian">
+                  <label for="Keto"> Keto</label>
+                  <input type="checkbox" id="Keto" name="Keto">
+                  <label for="High-Protein"> High-Protein</label>
+                  <input type="checkbox" id="High-Protein" name="High-Protein">
+                  <label for="Low-Carb"> Low-Carb</label>
+                  <input type="checkbox" id="Low-Carb" name="Low-Carb">
+                </div>
+                <h3>Allergies & Restrictions</h3>
+                <div class="allergies">
+                  <label for="Gluten-Free"> Gluten-Free</label>
+                  <input type="checkbox" id="Gluten-Free" name="Gluten-Free" checked>
+                  <label for="Dairy-Free"> Dairy-Free</label>
+                  <input type="checkbox" id="Dairy-Free" name="Dairy-Free">
+                  <label for="Soy-Free"> Soy-Free</label>
+                  <input type="checkbox" id="Soy-Free" name="Soy-Free">
+                  <label for="Nut-Free"> Nut-Free</label>
+                  <input type="checkbox" id="Nut-Free" name="Nut-Free"> 
+                  <label for="Egg-Free"> Egg-Free</label>
+                  <input type="checkbox" id="Egg-Free" name="Egg-Free"> 
+                  <label for="Shellfish-Free"> Shellfish-Free</label>
+                  <input type="checkbox" id="Shellfish-Free" name="Shellfish-Free">           
+                </div>
+                <h3>Health Goals</h3>
+                <div class="Health-goals">
+                  <label for="Weight Loss"> Weight Loss</label>
+                  <input type="checkbox" id="Weight Loss" name="Weight Loss" checked> 
+                  <label for="Muscle Gain"> Muscle Gain</label>
+                  <input type="checkbox" id="Muscle Gain" name="Muscle Gain"> 
+                  <label for="Maintenance"> Maintenance</label>
+                  <input type="checkbox" id="Maintenance" name="Maintenance"> 
+                  <label for="Heart Healthy"> Heart Healthy</label>
+                  <input type="checkbox" id="Heart Healthy" name="Heart Healthy"> 
+                </div>
+              </div>
+             </fieldset>
+            <div class="create-acc">
+              <div class="terms">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the <a href="#terms">Terms of Service</a> and <a href="#policy">Privacy Policy</a></label>
+              </div>
+              <button class="login-btn">Create Account</button>
+              <p>Already have an Account?<a href="login-modal" class="login-link"> LogIn Here</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+  </section>
+ 
   <script src="./script.js"></script>
 </body>
 </html>
