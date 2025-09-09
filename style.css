@@ -267,7 +267,7 @@ button{
   margin-top: 4rem;
   padding: 1rem;
 }
-.grocery-list button{
+.grocery-list button, .save-recipe{
   background-color: var(--accent);
   color: var(--light);
   border: none;
@@ -363,7 +363,7 @@ form a{
 }
 
 
-.signup-modal{
+.signup-modal, .recipe-modal{
   display: none;
   position: fixed;
   top: 10%;
@@ -419,7 +419,13 @@ legend{
 .create-acc p {
   text-align: center;
 }
-.notification{
-  
+.recipe-modal textarea{
+  border-radius: 12px;
+  width: 90%;
+}
+.recipe-modal select{
+  padding: 1rem;
+  width: 90%;
+  border: 1px solid var(--gray);
 }
 
