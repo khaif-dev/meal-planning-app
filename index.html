@@ -15,10 +15,10 @@
     </div>
     <nav>
       <ul>     
-        <li><a href="#home">Home</a></li>
-        <li><a href="#recipes">Recipes</a></li>
-        <li><a href="#meal">Meal Plan</a></li>
-        <li><a href="#grocery-list">Grocery List</a></li>
+        <li><a href="home-section" class="nav-link" data-target="home">Home</a></li>
+        <li><a href="recipes-section" class="nav-link" data-target="Recipes">Recipes</a></li>
+        <li><a href="meal-planner" class="nav-link" data-target="meal-plan">Meal Plan</a></li>
+        <li><a href="grocery-section" class="nav-link" data-target="grocery-list">Grocery List</a></li>
       </ul>
     </nav>
     <div class="cfa">
@@ -27,13 +27,83 @@
     </div>
   </header>
 
-    <!-- home section -->
-  <section class="home">
-    <h1>Plan Your Meals, Simplify Your Life</h1>
-    <h2>Create personalized meal plans, discover delicious recipes, and generate grocery lists all in one place.</h2>
-    <button class="signup">Get Started</button>
+    <div class="container">
+      <!-- home section -->
+      <section id="home-section" class="app-section active">
+        <div class="hero">
+          <h1>Plan Your Meals, Simplify Your Life</h1>
+          <p>Create personalized meal plans, discover delicious recipes, and generate grocery lists all in one place.</p>
+          <button id="heroBtn">Get Started</button>
+        </div>
+        <div class="features">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-calendar-alt"></i></div>
+            <h3>Weekly Planning</h3>
+            <p>Plan your meals for the week with our intuitive drag-and-drop interface.</p>
+          </div>
 
-  </section>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-book"></i></div>
+            <h3>500+ Recipes</h3>
+            <p>Access hundreds of healthy and delicious recipes for any diet or preference.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-list"></i></div>
+            <h3>Grocery Lists</h3>
+            <p>Automatically generate shopping lists based on your meal plans.</p>          
+          </div>
+        </div>      
+      </section>
+
+      <!-- meal planner section -->
+      <section id="mealPlanner-section" class="app-section meal-planner">
+        <h2 class="section-title"><i class="fas fa-calendar-week"></i> Weekly Meal Plan</h2>
+
+        <div class="week-nav">
+        <button id="prev-week">
+          <i class="fas fa-chevron-left"></i> Previous Week
+        </button>
+        <span id="week-range"><strong>June 12 - June 18, 2023</strong></span>
+        <button id="next-week">
+          Next Week <i class="fas fa-chevron-right"></i>
+        </button>
+        </div>
+
+        <div class="week-days" id="week-days">
+            <!-- Days will be populated by JavaScript -->
+        </div>
+
+        <div class="meals" id="meals-container">
+            <!-- Meals will be populated by JavaScript -->
+        </div>
+
+      </section> 
+
+      <!-- Recipes Section -->
+      <section id="recipes-section" class="app-section">
+          <h2 class="section-title"><i class="fas fa-book"></i> Recipe Library</h2>
+          <button id="add-recipe-btn">Add New Recipe</button>
+          
+          <div class="recipe-list" id="recipe-list">
+              <!-- Recipes will be populated by JavaScript -->
+          </div>
+      </section>
+
+      <!-- Grocery List Section -->
+      <section id="grocery-section" class="app-section grocery-list">
+        <h2 class="section-title"><i class="fas fa-shopping-basket"></i> Grocery List</h2>
+        <p>Based on your meal plan for this week</p>
+        
+        <div class="grocery-items" id="grocery-items">
+            <!-- Grocery items will be populated by JavaScript -->
+        </div>
+        
+        <button class="btn btn-primary" style="margin-top: 20px;" id="print-grocery-btn">
+            <i class="fas fa-print"></i> Print Grocery List
+        </button>
+      </section>
+    </div>
 
   <section>
     <!-- modal overlay to prevent interaction when modal is displaying -->
@@ -110,7 +180,7 @@
                 </div>
                 <div class="form-group">
                   <label for="confirm-password"><span style="color: red;">*</span>Confirm Password</label>
-                  <input type="password" id="confirm-password" name="repassword" placeholder="Confirm password" required>
+                  <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required>
                 </div>
                 <div class="gender-group">
                   <input type="radio" id="female" name="gender" value="female" checked>
@@ -183,6 +253,9 @@
           </form>
         </div>
       </div>
+
+      <!-- notification modal -->
+      <div class="notification" id="notification"></div>
   </section>
  
   <script src="./script.js"></script>
