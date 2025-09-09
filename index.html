@@ -256,6 +256,41 @@
 
       <!-- notification modal -->
       <div class="notification" id="notification"></div>
+
+      <!-- recipe modal -->
+       <div class="recipe-modal" id="recipe-modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1>Add New Recipe</h1>
+            <span class="close">&times;</span>
+          </div>
+          <form action="submit" method="post">
+            <div class="form-group">
+              <label for="recipe-name">Recipe Name
+                <input type="text" id="recipe-name" name="recipe name">
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="description">description</label>
+              <textarea name="description" id="description" rows="5"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="Ingredients">Ingredients (one per line)</label>
+              <textarea name="Ingredients" id="Ingredients" rows="10"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="Meal-type">Meal Type</label>
+                <select name="meal-type" id="meal-type">
+                  <option value="breakfast" selected>Breakfast</option>
+                  <option value="lunch">Lunch</option>
+                  <option value="dinner">Dinner</option>
+                </select>              
+            </div>
+            <button class="save-recipe" id="save-recipe"> Save Recipe</button>       
+            
+          </form>
+        </div>
+       </div>
   </section>
  
   <script src="./script.js"></script>
