@@ -79,7 +79,7 @@ const MealPlannerApp = {
       button.addEventListener('click', function() {
         modalOverlay.style.display = 'none';
         // Find the closest modal ancestor and hide it
-        const modal = this.closest('.login-modal, .reset-modal, .signup-modal');
+        const modal = this.closest('.login-modal, .reset-modal, .signup-modal, .recipe-modal');
         if (modal) {
           modal.style.display = 'none';
         }
@@ -105,6 +105,15 @@ const MealPlannerApp = {
     next_week.addEventListener('click', () => {
         this.changeWeek(+7);
     });
+
+    // display recipe modal when add recipe button is clicked
+    const addRecipeBtn = document.getElementById('add-recipe-btn');
+    const recipeModal = document. getElementById('recipe-modal');
+    addRecipeBtn.addEventListener('click',()=>{
+      modalOverlay.style.display = 'block';
+      recipeModal.style.display = 'block';
+    })
+
   },
 
   // creating method to display notifications for the user
