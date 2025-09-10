@@ -8,6 +8,7 @@ const MealPlannerApp = {
   // authToken: null,
   // selectedPlan: null,
   // paymentMethod: null,
+  myRecipes: [],
 
   // init is an object property that takes a function as its value
   init: function() {
@@ -114,6 +115,14 @@ const MealPlannerApp = {
       recipeModal.style.display = 'block';
     })
 
+    // Submit recipe form
+    const recipeForm = document.getElementById('recipe-form');
+    recipeForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        this.handleFormSubmit();
+        recipeForm.reset();
+    });
+
   },
 
   // creating method to display notifications for the user
@@ -149,8 +158,6 @@ const MealPlannerApp = {
       this.showNotification('Password do not match', true)
       return;
     }
-
-
   },
   
   // login method
@@ -159,9 +166,9 @@ const MealPlannerApp = {
     if(!email || !password){
       this.showNotification('Please enter both username and password', true)
     }
-
   },
 
+  
   // show specific section and hide others
   showSection: function(section) {
     const sections = document.querySelectorAll('.app-section');
@@ -262,6 +269,107 @@ const MealPlannerApp = {
     
     document.getElementById('week-range').innerHTML = `<strong>${weekRange}</strong>`;
   },
+
+  // method to handle form submit
+  handleFormSubmit: function(){
+    // submit recipe when save recipe button is clicked
+    const recipeForm = document.getElementById('recipe-form');
+    const recipeName = document.getElementById('recipe-name').value;
+    const recipeDescription = document.getElementById('recipe-description').value;
+    const ingredients = document.getElementById('Ingredients').value;
+    const steps = document.getElementById('steps').value;
+    const mealType = document.getElementById('meal-type').value;   
+    const recipeImage = document.getElementById('recipe-image');
+    const genericImages = {
+      breakfast: 'assets/breakfast.jpg',
+      lunch: 'assets/lunch.jpg',
+      dinner: 'assets/dinner.jpg'
+    }
+    // if user provides an image generate url for it else use generic images
+    let imageUrl = '';
+    if (recipeImage.files.length > 0){
+      const imageFile = recipeImage.files[0];
+      imageUrl = URL.createObjectURL(imageFile);
+    }
+    else{
+      imageUrl = genericImages[mealType] || genericImages.breakfast;
+    }
+
+    // convert the ingredients and steps into arrays
+    const ingredientsArray = ingredients.split('\n').filter(line => line.trim() !== '');
+    const stepsArray = steps.split('\n').filter(line => line.trim() !== '');
+
+    // create new recipe object
+    const newRecipe = {
+      title: recipeName,
+      description: recipeDescription,
+      ingredients: ingredientsArray,
+      steps: stepsArray,
+      imageUrl: imageUrl,
+      id: Date.now()
+    }
+
+      this.myRecipes.push(newRecipe);
+      this.renderRecipes();  
+  },
+
+  //display recipes added by user
+  renderRecipes:function(){
+    const mealList = document.getElementById('recipe-list');
+    mealList.innerHTML = '';
+
+    if(this.myRecipes.length === 0){
+      mealList.innerHTML = '<p>No recipes available. Please add some recipes first.</p>';
+      return;
+    }
+
+    this.myRecipes.forEach(recipe =>{
+      const recipeCards = document.createElement('div');
+      recipeCards.className = 'recipe-cards';
+      recipeCards.dataset.id = recipe.id;
+    
+
+      // generating ul for the ingredients 
+      const ingredientsList = `
+          <ul>
+              ${recipe.ingredients.map(ingredient => `<li>${ingredient.trim()}</li>`).join('')}
+          </ul>`;
+      // generating ol for the steps
+      const stepsList =`
+          <ol>
+              ${recipe.steps.map(step => `<li>${step.trim()}</li>`).join('')}
+          </ol>`;   
+
+      recipeCards.innerHTML=`
+                <div class="recipe-image">
+                  <img src="${recipe.imageUrl}" alt="${recipe.title}">
+                </div>
+                <div class="recipe-details">
+                  <h2>${recipe.title}</h2>
+                  <p>${recipe.description}</p>
+                </div>
+                <div class="recipe-actions">
+                  <button class="delete-recipe" recipe-id=${recipe.id}>Delete</button>
+                  <button class="full-recipe">View Full Recipe</button>
+                </div>`
+
+      // remove recipe when delete button is clicked
+      const deleteRecipe = recipeCards.querySelector('.delete-recipe')
+      deleteRecipe.addEventListener('click',(event)=>{
+        const recipeToDelete = Number(event.target.getAttribute('recipe-id'))
+        this.myRecipes = this.myRecipes.filter(recipe => recipe.id !== recipeToDelete)
+        // myLibrary = myLibrary.filter(book => book.id !== idToRemove);
+        this.renderRecipes();
+      });
+
+      mealList.appendChild(recipeCards);         
+    });
+  }, 
+  
+  // method to display full recipes
+  renderFullRecipe: function(){
+
+  }
   
 }
 
@@ -276,16 +384,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// function to display days of the week with dates
-function renderWeekDays(){
-  const weekDaysContainer = document.getElementById('week-days');
-  weekDaysContainer.innerHTML = '';
 
-  const startOfWeek = new Date(this.currentWeek);
-  // const today = new Date(); //new Date gets the current date and time of user
-  // console.log(today.toString());
-  startOfWeek.setDate(startOfWeek.getDate() - startOfWeek.getDay());
-
-
-}
 

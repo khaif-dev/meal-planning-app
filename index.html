@@ -264,19 +264,27 @@
             <h1>Add New Recipe</h1>
             <span class="close">&times;</span>
           </div>
-          <form action="submit" method="post">
+          <form action="submit" method="post" id="recipe-form">
             <div class="form-group">
-              <label for="recipe-name">Recipe Name
-                <input type="text" id="recipe-name" name="recipe name">
+              <label for="recipe-name"><span style="color: red;">*</span>Recipe Name
+                <input type="text" id="recipe-name" name="recipe name" required>
               </label>
             </div>
             <div class="form-group">
-              <label for="description">description</label>
-              <textarea name="description" id="description" rows="5"></textarea>
+              <label for="recipe-description"><span style="color: red;">*</span>description</label>
+              <textarea name="recipe-description" id="recipe-description" rows="5" required></textarea>
             </div>
             <div class="form-group">
-              <label for="Ingredients">Ingredients (one per line)</label>
-              <textarea name="Ingredients" id="Ingredients" rows="10"></textarea>
+              <label for="Ingredients"><span style="color: red;">*</span>Ingredients (one per line)</label>
+              <textarea name="Ingredients" id="Ingredients" rows="8" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="steps"><span style="color: red;">*</span>steps (one per line)</label>
+              <textarea name="steps" id="steps" rows="12" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="recipe-image">Upload a Photo of the Recipe</label>
+              <input type="file" id="recipe-image" name="recipe-image" accept="image/png, image/jpg, image/jpeg">
             </div>
             <div class="form-group">
               <label for="Meal-type">Meal Type</label>
@@ -286,7 +294,7 @@
                   <option value="dinner">Dinner</option>
                 </select>              
             </div>
-            <button class="save-recipe" id="save-recipe"> Save Recipe</button>       
+            <button class="save-recipe" type="submit"> Save Recipe</button>   
             
           </form>
         </div>
