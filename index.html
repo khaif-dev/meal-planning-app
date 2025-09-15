@@ -4,9 +4,303 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./style.css">
-  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <title>Tunakula?</title>
 </head>
 <body>
-  
+  <header>
+    <div class="brand">
+      <i class="fa-solid fa-utensils fa-2x"></i>
+      <h1>Tunakula?</h1> 
+    </div>
+    <nav>
+      <ul>     
+        <li><a href="home-section" class="nav-link" data-target="home">Home</a></li>
+        <li><a href="recipes-section" class="nav-link" data-target="Recipes">Recipes</a></li>
+        <li><a href="meal-planner" class="nav-link" data-target="meal-plan">Meal Plan</a></li>
+        <li><a href="grocery-section" class="nav-link" data-target="grocery-list">Grocery List</a></li>
+      </ul>
+    </nav>
+    <div class="cfa">
+      <button class="login">Log In</button>
+      <button class="signup">Sign Up</button>
+    </div>
+  </header>
+
+    <div class="container">
+      <!-- home section -->
+      <section id="home-section" class="app-section active">
+        <div class="hero">
+          <h1>Plan Your Meals, Simplify Your Life</h1>
+          <p>Create personalized meal plans, discover delicious recipes, and generate grocery lists all in one place.</p>
+          <button id="heroBtn">Get Started</button>
+        </div>
+        <div class="features">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-calendar-alt"></i></div>
+            <h3>Weekly Planning</h3>
+            <p>Plan your meals for the week with our intuitive drag-and-drop interface.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-book"></i></div>
+            <h3>500+ Recipes</h3>
+            <p>Access hundreds of healthy and delicious recipes for any diet or preference.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-list"></i></div>
+            <h3>Grocery Lists</h3>
+            <p>Automatically generate shopping lists based on your meal plans.</p>          
+          </div>
+        </div>      
+      </section>
+
+      <!-- meal planner section -->
+      <section id="mealPlanner-section" class="app-section meal-planner">
+        <h2 class="section-title"><i class="fas fa-calendar-week"></i> Weekly Meal Plan</h2>
+
+        <div class="week-nav">
+        <button id="prev-week">
+          <i class="fas fa-chevron-left"></i> Previous Week
+        </button>
+        <span id="week-range"><strong>June 12 - June 18, 2023</strong></span>
+        <button id="next-week">
+          Next Week <i class="fas fa-chevron-right"></i>
+        </button>
+        </div>
+
+        <div class="week-days" id="week-days">
+            <!-- Days will be populated by JavaScript -->
+        </div>
+
+        <div class="meals" id="meals-container">
+            <!-- Meals will be populated by JavaScript -->
+        </div>
+
+      </section> 
+
+      <!-- Recipes Section -->
+      <section id="recipes-section" class="app-section">
+          <h2 class="section-title"><i class="fas fa-book"></i> Recipe Library</h2>
+          <button id="add-recipe-btn">Add New Recipe</button>
+          
+          <div class="recipe-list" id="recipe-list">
+              <!-- Recipes will be populated by JavaScript -->
+          </div>
+      </section>
+
+      <!-- Grocery List Section -->
+      <section id="grocery-section" class="app-section grocery-list">
+        <h2 class="section-title"><i class="fas fa-shopping-basket"></i> Grocery List</h2>
+        <p>Based on your meal plan for this week</p>
+        
+        <div class="grocery-items" id="grocery-items">
+            <!-- Grocery items will be populated by JavaScript -->
+        </div>
+        
+        <button class="btn btn-primary" style="margin-top: 20px;" id="print-grocery-btn">
+            <i class="fas fa-print"></i> Print Grocery List
+        </button>
+      </section>
+    </div>
+
+  <section>
+    <!-- modal overlay to prevent interaction when modal is displaying -->
+     <div class="modal-overlay"></div>
+      <!-- login modal -->
+      <div class="login-modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1>Login</h1>
+            <span class="close">&times;</span>
+          </div>
+          <form action="login" method="get">
+            <div class="form-group">
+              <label for="login-email"><span style="color: red;">*</span>Email</label> 
+              <input type="email" id="login-email" name="email" placeholder="Enter email address" required>               
+            </div>
+            <div class="form-group">
+              <label for="login-password"><span style="color: red;">*</span>Password</label>
+              <input type="password" id="login-password" name="password" required>
+            </div>
+            <button class="login-btn">Login</button>
+            <a href="reset-modal" id="reset-password">Forgot Password?</a>
+          </form>
+        </div>
+      </div>
+      <!-- reset password modal -->
+      <div class="reset-modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1>Reset Password</h1>
+            <span class="close">&times;</span>
+          </div>
+          <form action="login" method="get">
+            <div class="form-group">
+              <label for="reset-password-email"><span style="color: red;">*</span>Email</label>
+              <input type="email" id="reset-password-email" name="email" placeholder="Enter email address associated with this account" required>
+            </div>
+            <button class="login-btn">Reset Password</button>
+            <p>Remember Password?<a href="login-modal" class="login-link"> Login Here</a></p>
+          </form>
+        </div>
+      </div>
+
+      <!-- signup modal -->
+       <div class="signup-modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1>Create Account</h1>
+            <span class="close">&times;</span>
+          </div>
+          <form action="submit" method="post">
+            <fieldset>
+              <legend>Personal Information</legend>
+              <div class="personal-info">
+                <div class="form-group">
+                  <label for="first-name"><span style="color: red;">*</span>First Name</label>
+                  <input type="text" id="first-name" name="first-name" placeholder="Enter first name" required>
+                </div>
+                <div class="form-group">
+                  <label for="last-name"><span style="color: red;">*</span>Last Name</label>
+                  <input type="text" id="last-name" name="last-name" placeholder="Enter last name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email"><span style="color: red;">*</span>Email</label>
+                  <input type="email" id="email" name="email" placeholder="Enter email address" required>
+                </div>
+                <div class="form-group">
+                  <label for="phone-number"><span style="color: red;">*</span>Phone Number</label>
+                  <input type="tel" id="phone-number" name="phone-number" placeholder="Enter Phone Number" required>
+                </div>
+                <div class="form-group">
+                  <label for="password"><span style="color: red;">*</span>Password</label>
+                  <input type="password" id="password" name="password" placeholder="Enter password" required>
+                </div>
+                <div class="form-group">
+                  <label for="confirm-password"><span style="color: red;">*</span>Confirm Password</label>
+                  <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required>
+                </div>
+                <div class="gender-group">
+                  <input type="radio" id="female" name="gender" value="female" checked>
+                  <label for="female">Female</label>
+                  <input type="radio" id="male" name="gender" value="male">
+                  <label for="male">Male</label>
+                  <input type="radio" id="prefer-not-to-say" name="gender" value="prefer-not-to-say">
+                  <label for="prefer-not-to-say">Prefer not to say</label>
+                </div>
+              </div>
+            </fieldset>
+            <!-- dietary preference -->
+             <fieldset class="preference">
+              <legend>Dietary Preference</legend>
+              <p>Select your dietary preferences to get personalized meal recommendations</p>
+              <div class="diet">
+                <h3>Diet Type</h3>
+                <div class="dietary-group">
+                  <label for="Carnivore"> Carnivore</label>
+                  <input type="checkbox" id="Carnivore" name="Carnivore" checked>
+                  <label for="Omnivore"> Omnivore</label>
+                  <input type="checkbox" id="Omnivore" name="Omnivore">
+                  <label for="Vegan"> Vegan</label>
+                  <input type="checkbox" id="Vegan" name="vegan">
+                  <label for="Vegetarian"> Vegetarian</label>
+                  <input type="checkbox" id="Vegetarian" name="Vegetarian">
+                  <label for="Keto"> Keto</label>
+                  <input type="checkbox" id="Keto" name="Keto">
+                  <label for="High-Protein"> High-Protein</label>
+                  <input type="checkbox" id="High-Protein" name="High-Protein">
+                  <label for="Low-Carb"> Low-Carb</label>
+                  <input type="checkbox" id="Low-Carb" name="Low-Carb">
+                </div>
+                <h3>Allergies & Restrictions</h3>
+                <div class="allergies">
+                  <label for="Gluten-Free"> Gluten-Free</label>
+                  <input type="checkbox" id="Gluten-Free" name="Gluten-Free" checked>
+                  <label for="Dairy-Free"> Dairy-Free</label>
+                  <input type="checkbox" id="Dairy-Free" name="Dairy-Free">
+                  <label for="Soy-Free"> Soy-Free</label>
+                  <input type="checkbox" id="Soy-Free" name="Soy-Free">
+                  <label for="Nut-Free"> Nut-Free</label>
+                  <input type="checkbox" id="Nut-Free" name="Nut-Free"> 
+                  <label for="Egg-Free"> Egg-Free</label>
+                  <input type="checkbox" id="Egg-Free" name="Egg-Free"> 
+                  <label for="Shellfish-Free"> Shellfish-Free</label>
+                  <input type="checkbox" id="Shellfish-Free" name="Shellfish-Free">           
+                </div>
+                <h3>Health Goals</h3>
+                <div class="Health-goals">
+                  <label for="Weight Loss"> Weight Loss</label>
+                  <input type="checkbox" id="Weight Loss" name="Weight Loss" checked> 
+                  <label for="Muscle Gain"> Muscle Gain</label>
+                  <input type="checkbox" id="Muscle Gain" name="Muscle Gain"> 
+                  <label for="Maintenance"> Maintenance</label>
+                  <input type="checkbox" id="Maintenance" name="Maintenance"> 
+                  <label for="Heart Healthy"> Heart Healthy</label>
+                  <input type="checkbox" id="Heart Healthy" name="Heart Healthy"> 
+                </div>
+              </div>
+             </fieldset>
+            <div class="create-acc">
+              <div class="terms">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the <a href="#terms">Terms of Service</a> and <a href="#policy">Privacy Policy</a></label>
+              </div>
+              <button class="login-btn">Create Account</button>
+              <p>Already have an Account?<a href="login-modal" class="login-link"> LogIn Here</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- notification modal -->
+      <div class="notification" id="notification"></div>
+
+      <!-- recipe modal -->
+       <div class="recipe-modal" id="recipe-modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1>Add New Recipe</h1>
+            <span class="close">&times;</span>
+          </div>
+          <form action="submit" method="post" id="recipe-form">
+            <div class="form-group">
+              <label for="recipe-name"><span style="color: red;">*</span>Recipe Name
+                <input type="text" id="recipe-name" name="recipe name" required>
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="recipe-description"><span style="color: red;">*</span>description</label>
+              <textarea name="recipe-description" id="recipe-description" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="Ingredients"><span style="color: red;">*</span>Ingredients (one per line)</label>
+              <textarea name="Ingredients" id="Ingredients" rows="8" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="steps"><span style="color: red;">*</span>steps (one per line)</label>
+              <textarea name="steps" id="steps" rows="12" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="recipe-image">Upload a Photo of the Recipe</label>
+              <input type="file" id="recipe-image" name="recipe-image" accept="image/png, image/jpg, image/jpeg">
+            </div>
+            <div class="form-group">
+              <label for="Meal-type">Meal Type</label>
+                <select name="meal-type" id="meal-type">
+                  <option value="breakfast" selected>Breakfast</option>
+                  <option value="lunch">Lunch</option>
+                  <option value="dinner">Dinner</option>
+                </select>              
+            </div>
+            <button class="save-recipe" type="submit"> Save Recipe</button>   
+            
+          </form>
+        </div>
+       </div>
+  </section>
+ 
+  <script src="./script.js"></script>
 </body>
 </html>

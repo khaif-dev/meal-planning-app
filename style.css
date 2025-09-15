@@ -1,5 +1,481 @@
-body{
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+html{
+  font-size: 62.5%;
+  background-color: var(--gray);
+  line-height: 1.6;
+}
+
+p{
+  font-size: 1.5rem;
+}
+:root {
+  --primary: #4CAF50;
+  --secondary: #2196F3;
+  --accent: #FF9800;
+  --light: #f9f9f9;
+  --dark: #333;
+  --gray: #e0e0e0;  
+}
+
+header {
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));;
+  color: var(--light);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-height: max-content;
+}
+
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 1.5rem;
+}
+
+nav ul{
+  list-style-type: none;
+  display: flex;
+  gap: 2rem;
+  font-size: 1.8rem;
+}
+nav a {
+  text-decoration: none;
+  color: var(--light);
+}
+nav a:hover{
+  color: var(--accent);
+}
+.cfa {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.cfa button{
+  padding: 1.5rem;  
+  border-radius: 50px;
+  font-size: 1.8rem;
+}
+
+.login{
+  background: none;
+  color: var(--light);
+  border: 1px solid var(--light);
+}
+.signup{
+  background: var(--accent);
+  color: var(--light);
+  border: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+button{
+  font-size: 1.5rem;
+  padding: 1rem;
+  border-radius: 20px;
+}
+/* Section management */
+/* .app-section {
+    display: none;
+} */
+.app-section{
+  background-color: var(--light);
+  border-radius: 12px;
+}
+.app-section.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+/* home section */
+.hero {
+    text-align: center;
+    padding: 6rem 2rem;
+    background-color: white;
+    border-radius: 12px;
+    margin: 3rem 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.hero h1{
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+.hero p{
+  font-size: 2rem;
+  font-weight: lighter;
+  margin-bottom: 20px;
+
+}
+.hero button{
+  padding: 1.5rem;  
+  border-radius: 50px;
+  font-size: 1.8rem;
+  background: var(--accent);
+  color: var(--light);
+  border: none;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin: 4rem 0;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  background-color: var(--primary);
+  color: white;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  font-size: 2.8rem;
+}
+
+.feature-card h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--dark);
+}
+
+.meal-planner{
+  margin-top: 4rem;
+  background-color: var(--light);
+  max-height: max-content;
+  padding: 2rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+}
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.week-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.week-nav button{
+  border-radius: 20px;
+  font-size: 1.5rem;
+  padding: 1rem;
+  border: 1px solid var(--dark);
+  background: none;
+}
+.week-nav span{
+  font-size: 1.5rem;
+}
+.week-days{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+.day{
+  background-color: var(--gray);
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+}
+.day p{
+  font-size: 2rem;
+}
+.day.active{
+  background-color: var(--primary);
+  color: var(--light);
+}
+
+.meals{
+  display: grid;
+  grid-template-columns:  repeat(3,1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.meal-card{
+  background-color: var(--gray);
+  border-radius: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+.meal-card button{
+  background-color: var(--accent);
+  color: var(--light);
+  border: none;
+}
+.meal-image{
+  background-image: url(./assets/breakfast.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  border-radius: 12px;
+}
+#recipes-section{
+  margin-top: 4rem;
+  max-height: max-content;
+  background-color: var(--light);
+  padding: 1rem;
+}
+#recipes-section button{
+  background-color: var(--accent);
+  border: none;
+  color: var(--light);
+}
+.recipe-list{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  /* grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); */
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.recipe-cards{
+  background: var(--light);
+  color: var(--dark);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  gap: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.recipe-image{
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.recipe-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+.recipe-details{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+.recipe-actions{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.grocery-list{
+  margin-top: 4rem;
+  padding: 1rem;
+}
+.grocery-list button, .save-recipe{
+  background-color: var(--accent);
+  color: var(--light);
+  border: none;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+}
+.login-modal, .reset-modal{
+  display: none;
+  position: fixed;
+  top: 15%;
+  left: 40%;
+  width: 30%;
+  max-width: 50%;
+  max-height: max-content;
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;  
+  background-color: var(--light);
+  padding: 3rem;
+  border-radius: 10px;
+}
+.modal-content{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.modal-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.close{
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+.form-group{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+.form-group input{
+  width: 90%;
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.form-group input:focus{
+  outline: none;
+  border-color: red;
+}
+.gender-group{
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.login-btn{
+  width: max-content;
+  padding: 1rem;
+  background-color: var(--secondary);
+  color: var(--light);
+  border: 1px solid var(--light);
+  border-radius: 30px;
+  font-size: 1.8rem;
+}
+
+
+form a{
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: var(--secondary);
+}
+
+
+.signup-modal, .recipe-modal{
+  display: none;
+  position: fixed;
+  top: 10%;
+  left: 30%;
+  z-index: 1000;
+  padding: 2rem;
+  height: max-content;
+  max-height: 80vh;
+  max-width: 80%;
+  border-radius: 20px;
+  background-color: var(--light);  
+  justify-content: center;
+  overflow-y: auto;
+}
+fieldset{
+  padding: 2rem;
+  /* border: none; */
+  border-radius: 20px;
+}
+legend{
+  font-size: 2rem;
+  font-weight: bold;
+}
+.personal-info{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+.diet{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.diet h3{
+  font-size: 1.5rem;
+}
+.dietary-group, .allergies, .Health-goals{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  
+}
+.create-acc{
+  display: flex;  
+  flex-direction: column;
+  padding:2rem;
+  gap: 1rem;
+}
+.create-acc button {
+  width: 90%;
+  margin: 0 auto;
+}
+.create-acc p {
+  text-align: center;
+}
+.recipe-modal{
+  width: 50%;
+  height: max-content;
+}
+.recipe-modal textarea{
+  border-radius: 12px;
+  width: 90%;
+  padding: 1rem;
+}
+.recipe-modal select{
+  padding: 1rem;
+  width: 90%;
+  border: 1px solid var(--gray);
+}
+.recipe-modal button{
+  margin: 0 auto;
+  width: 20%;
+}
+
+
